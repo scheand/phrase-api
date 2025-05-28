@@ -17,11 +17,12 @@ resource "google_project_service" "storage_api" {
 }
 
 # Artifact Registry repository for Docker images
-resource "google_artifact_registry_repository" "phrase_api_repo" {
-  location      = var.region
-  repository_id = "phrase-api-repo"
-  format        = "DOCKER"
-}
+# Create an Artifact Registry repository for storing Docker images
+#resource "google_artifact_registry_repository" "phrase_api_repo" {
+#  location      = var.region
+#  repository_id = "phrase-api-repo"
+#  format        = "DOCKER"
+#}
 
 # Cloud Run service
 resource "google_cloud_run_service" "phrase_api" {
