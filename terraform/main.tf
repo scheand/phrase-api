@@ -46,7 +46,7 @@ resource "google_cloud_run_service" "phrase_api" {
     latest_revision = true
   }
 
-  depends_on = [google_project_service.run_api, google_artifact_registry_repository.phrase_api_repo]
+  depends_on = [google_project_service.run_api]
 }
 
 # Allow unauthenticated access (for simplicity; adjust for production)
