@@ -32,7 +32,7 @@ resource "google_cloud_run_service" "phrase_api" {
   template {
     spec {
       containers {
-        image = "${var.region}-docker.pkg.dev/${var.project_id}/phrase-api-repo/phrase-api:latest"
+        image = "${var.region}-docker.pkg.dev/${var.project_id}/phrase-api-repo/phrase-api:${var.image_tag}"
         env {
           name  = "GEMINI_API_KEY"
           value = var.gemini_api_key
