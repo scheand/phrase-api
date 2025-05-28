@@ -23,15 +23,6 @@ resource "google_artifact_registry_repository" "phrase_api_repo" {
   format        = "DOCKER"
 }
 
-# Cloud Storage bucket for Terraform state
-resource "google_storage_bucket" "terraform_state" {
-  name     = "${var.project_id}-tf-state"
-  location = var.region
-  versioning {
-    enabled = true
-  }
-}
-
 # Cloud Run service
 resource "google_cloud_run_service" "phrase_api" {
   name     = "phrase-api"

@@ -1,4 +1,5 @@
 
+us-central1-docker.pkg.dev/tough-flow-460911-j0/phrase-api-repo
 
 export GOOGLE_PROJECT_ID=tough-flow-460911-j0    
 
@@ -42,4 +43,11 @@ export GEMINI_API_KEY=AIzaSyAPyjA2KXACmEbYGrNQSv3AW1lpKnNkBnY
   ```console
     uvicorn main:app --reload
   ```
+
+# Teraform
+
+## locally init
+cd terraform
+export GOOGLE_APPLICATION_CREDENTIALS=~/cloudbuild-sa-703.json
+terraform init
     
