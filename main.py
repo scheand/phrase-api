@@ -1,5 +1,6 @@
 import os
 import datetime
+import logging
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import google.generativeai as genai
@@ -7,8 +8,7 @@ from cachetools import TTLCache
 
 # Initialize FastAPI app
 app = FastAPI(title="Phrase of the Day API")
-# In-memory cache: stores phrases for 24 hours (86400 seconds)
-cache = TTLCache(maxsize=100, ttl=5)  # 24 hours
+cache = TTLCache(maxsize=100, ttl=5) # Cache for 5 seconds
 
 
 # Configure Gemini API
@@ -24,6 +24,7 @@ class PhraseResponse(BaseModel):
     phrase: str
     theme: str
     date: str
+    cache_key: str
 
 # Generate a phrase using Gemini
 def generate_phrase(theme: str = "motivational") -> str:
@@ -64,11 +65,13 @@ async def get_daily_phrase():
 async def get_themed_phrase(theme: str):
     today = datetime.date.today().isoformat()
     cache_key = f"phrase_{today}_{theme}"
-    
+    cache_key_stripped = None    
     if cache_key in cache:
+        logging.info(f"Cache hit for key: {cache_key}")        
         phrase = cache[cache_key]
+        cache_key_stripped = cache_key
     else:
         phrase = generate_phrase(theme)
         cache[cache_key] = phrase
     
-    return PhraseResponse(phrase=phrase, theme=theme, date=today)
+    return PhraseResponse(phrase=phrase, theme=theme, date=today, cache_key=cache_key_stripped)
