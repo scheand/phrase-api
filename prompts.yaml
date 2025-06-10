@@ -1,0 +1,7 @@
+phrase-prompt: |
+  Generate the only on single, famous, concise phrase (under 25 words) from a notable individual for the {theme}. 
+  Alongside the phrase, provide the name of the person and a brief, one-sentence description highlighting their primary field of influence or greatest achievement. 
+  Please ensure the phrase is impactful and relevant to the theme and is not duplicated at least for today.
+  Example: 
+  "The only thing we have to fear is fear itself." - Franklin D. Roosevelt, 
+  the 32nd President of the United States who led the country through the Great Depression and World War II.
