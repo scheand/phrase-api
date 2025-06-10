@@ -1,7 +1,5 @@
-from typing import Optional
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-import google.generativeai as genai
 import logging
 from phrasegen.routes import router as prasegen_router
 
@@ -14,7 +12,7 @@ app = FastAPI(title="Phrase of the Day API")
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://example.com"],  # Specify allowed origins
+    allow_origins=["http://localhost:3000", "https://example.com", "https://*.run.app"],  # Specify allowed origins
     allow_credentials=True,
     allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
     allow_headers=["*"],  # Allow all headers

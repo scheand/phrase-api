@@ -5,7 +5,7 @@ from typing import Optional
 from fastapi import APIRouter, HTTPException
 import google.generativeai as genai
 from cachetools import TTLCache
-from .models import PhraseResponse
+from phrasegen.models import PhraseResponse
 from utils.config_loader import load_prompts
 
 router = APIRouter()
