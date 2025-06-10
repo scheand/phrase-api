@@ -3,7 +3,7 @@ us-central1-docker.pkg.dev/tough-flow-460911-j0/phrase-api-repo
 
 export GOOGLE_PROJECT_ID=tough-flow-460911-j0    
 
-export GEMINI_API_KEY=AIzaSyAPyjA2KXACmEbYGrNQSv3AW1lpKnNkBnY
+export GEMINI_API_KEY=key
 
 ## Authenticate Docker with GCP:
 
