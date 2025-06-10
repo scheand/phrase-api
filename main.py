@@ -12,14 +12,14 @@ app = FastAPI(title="Phrase of the Day API")
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://example.com", "https://*.run.app"],  # Specify allowed origins
+    allow_origins=["http://localhost:3000", "https://*.run.app"],  # Specify allowed origins
     allow_credentials=True,
     allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
     allow_headers=["*"],  # Allow all headers
 )
 
 # Include feature routers
-app.include_router(prasegen_router, prefix="/phrase", tags=["phrase"])
+app.include_router(prasegen_router)
 
 # Root endpoint
 @app.get("/")
